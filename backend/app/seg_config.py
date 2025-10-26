@@ -11,7 +11,7 @@ _DEFAULT = {
     "merge": {"collinear_gap_mm": 70, "min_segment_mm": 180},
     "doors": {"gap_min_mm": 700, "gap_max_mm": 1200},
     "windows": {"min_width_mm": 600, "max_width_mm": 2400, "pair_delta_px": 6},
-    "text": {"remove": true, "kernel": 3, "dilate": 2, "inpaint_radius": 2},
+    "text": {"remove": True, "kernel": 3, "dilate": 2, "inpaint_radius": 2},
     "rooms": {"min_area_m2": 1.5, "polygon_simplify_epsilon_mm": 50}
 }
 
