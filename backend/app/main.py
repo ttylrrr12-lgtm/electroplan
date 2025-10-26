@@ -13,8 +13,8 @@ import math, heapq, yaml, os
 
 # 1) создаём приложение
 app = FastAPI(title="ElectroPlan Backend", version="1.1.0")
-from .segment import router as segment_router
-app.include_router(segment_router)
+from .segment_v2 import router as segment_v2_router
+app.include_router(segment_v2_router)
 
 # 2) CORS
 app.add_middleware(
