@@ -14,18 +14,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 3) подключаем роутер сегментации ПОСЛЕ создания app
-app.include_router(segment_router)
-
-# --- дальше идёт твой остальной код: модели, /health, /api/route, /api/route/v2 и т.д. ---
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# 3) Подключаем сегментацию v2 (новый эндпоинт /api/segment/v2)
+from .segment_v2 import router as segment_v2_router
+app.include_router(segment_v2_router)
 
 # ---------- Models ----------
 class Wall(BaseModel):
