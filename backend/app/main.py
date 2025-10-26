@@ -4,7 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import List, Literal, Tuple, Dict, Optional
 import math, heapq, yaml, os
-
+from .segment import router as segment_router
+app.include_router(segment_router)
 app = FastAPI(title="ElectroPlan Backend", version="1.1.0")
 
 app.add_middleware(
