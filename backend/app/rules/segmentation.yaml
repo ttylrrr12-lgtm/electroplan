@@ -1,0 +1,35 @@
+
+deskew: true
+resize:
+  max_side_px: 2200
+
+binarize:
+  method: "adaptive_gaussian"
+  block_size: 31
+  C: 5
+
+morph:
+  open_kernel: 3
+  close_kernel: 5
+
+hough:
+  threshold: 80
+  min_line_length_mm: 300
+  max_line_gap_mm: 50
+  angle_tolerance_deg: 10
+
+grid:
+  snap_mm: 5
+
+merge:
+  collinear_gap_mm: 60
+  min_segment_mm: 200
+
+doors:
+  gap_min_mm: 700
+  gap_max_mm: 1100
+
+windows:
+  min_width_mm: 600
+  max_width_mm: 2400
+  parallel_tolerance_px: 2
