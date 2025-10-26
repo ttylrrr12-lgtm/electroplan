@@ -1,8 +1,8 @@
-fastapi==0.115.0
-uvicorn==0.30.6
-pydantic==2.9.2
-PyYAML==6.0.2
 opencv-python-headless==4.10.0.84
 numpy==2.1.1
 pillow==10.4.0
 python-multipart==0.0.9
+PyYAML==6.0.2
+fastapi==0.115.0
+uvicorn==0.30.6
+pydantic==2.9.2
