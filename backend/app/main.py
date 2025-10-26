@@ -1,12 +1,32 @@
 
+# backend/app/main.py
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+# импортируй роутер сегментации сразу — это ок
+from .segment import router as segment_router
+
 from pydantic import BaseModel, Field
 from typing import List, Literal, Tuple, Dict, Optional
 import math, heapq, yaml, os
-from .segment import router as segment_router
-app.include_router(segment_router)
+
+# 1) создаём приложение
 app = FastAPI(title="ElectroPlan Backend", version="1.1.0")
+
+# 2) CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# 3) подключаем роутер сегментации ПОСЛЕ создания app
+app.include_router(segment_router)
+
+# --- дальше идёт твой остальной код: модели, /health, /api/route, /api/route/v2 и т.д. ---
 
 app.add_middleware(
     CORSMiddleware,
