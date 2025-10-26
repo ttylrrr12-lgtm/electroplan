@@ -5,12 +5,14 @@ _DEFAULT = {
     "deskew": True,
     "resize": {"max_side_px": 2200},
     "binarize": {"method": "adaptive_gaussian", "block_size": 31, "C": 5},
-    "morph": {"open_kernel": 3, "close_kernel": 5},
-    "hough": {"min_line_length_mm": 300, "max_line_gap_mm": 50, "angle_tolerance_deg": 10, "threshold": 80},
+    "morph": {"open_kernel": 3, "close_kernel": 7},
+    "hough": {"min_line_length_mm": 250, "max_line_gap_mm": 60, "angle_tolerance_deg": 10, "threshold": 75},
     "grid": {"snap_mm": 5},
-    "merge": {"collinear_gap_mm": 60, "min_segment_mm": 200},
-    "doors": {"gap_min_mm": 700, "gap_max_mm": 1100},
-    "windows": {"min_width_mm": 600, "max_width_mm": 2400, "parallel_tolerance_px": 2}
+    "merge": {"collinear_gap_mm": 70, "min_segment_mm": 180},
+    "doors": {"gap_min_mm": 700, "gap_max_mm": 1200},
+    "windows": {"min_width_mm": 600, "max_width_mm": 2400, "pair_delta_px": 6},
+    "text": {"remove": true, "kernel": 3, "dilate": 2, "inpaint_radius": 2},
+    "rooms": {"min_area_m2": 1.5, "polygon_simplify_epsilon_mm": 50}
 }
 
 def load_config() -> dict:
