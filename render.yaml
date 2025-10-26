@@ -1,0 +1,9 @@
+services:
+- type: web
+  name: electroplan-backend
+  env: docker
+  region: frankfurt
+  plan: free
+  autoDeploy: true
+  dockerfilePath: ./backend/Dockerfile
+  healthCheckPath: /health

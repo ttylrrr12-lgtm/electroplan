@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ЭлектроПлан v1.1 (Fullstack)</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="favicon.ico">
+  <script src="config.js"></script>
+  <script src="app.harden.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>ЭлектроПлан <small class="muted">v1.1</small></h1>
+    <div class="actions">
+      <label class="file">
+        <input type="file" id="bgInput" accept="image/*,application/pdf">
+        <span>Загрузить план (PNG/JPG)</span>
+      </label>
+      <button id="modeWall">Рисовать стены</button>
+      <button id="modeSelect">Выделение</button>
+      <button id="btnCalibrate" title="Калибровка масштаба: кликни 2 точки → введи расстояние">Калибровка масштаба</button>
+      <div class="divider"></div>
+      <div class="palette">
+        <button class="tool" data-device="panel" title="Щиток"><img src="icons/panel.svg" /></button>
+        <button class="tool" data-device="socket" title="Розетка"><img src="icons/socket.svg" /></button>
+        <button class="tool" data-device="switch" title="Выключатель"><img src="icons/switch.svg" /></button>
+        <button class="tool" data-device="light" title="Светильник"><img src="icons/light.svg" /></button>
+      </div>
+      <div class="divider"></div>
+      <label class="toggle">
+        <input type="checkbox" id="strictToggle">
+        <span>Строгая разводка по правилам (v2)</span>
+      </label>
+      <button id="btnGenerate">AI-разводка</button>
+      <button id="btnClearRoutes">Очистить трассы</button>
+      <div class="divider"></div>
+      <button id="btnExportPDF">Экспорт PDF</button>
+      <button id="btnExportPNG">Экспорт PNG</button>
+      <button id="btnExportDXF">Экспорт DXF</button>
+      <div class="divider"></div>
+      <button id="btnSave">Скачать проект (.json)</button>
+      <button id="btnLoad">Загрузить проект</button>
+      <input type="file" id="projectInput" accept="application/json" style="display:none"/>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <h3>Параметры</h3>
+      <label>Масштаб: <input id="scaleInput" type="number" value="50"> мм/пикс</label>
+      <label>Высота потолка (мм): <input id="ceilingInput" type="number" value="2700"></label>
+      <label>Материал стен:
+        <select id="materialSelect">
+          <option value="brick">Кирпич</option>
+          <option value="concrete">Бетон</option>
+          <option value="wood">Дерево</option>
+        </select>
+      </label>
+      <div class="hints">
+        <h4>Подсказки ПУЭ (черновые)</h4>
+        <ul>
+          <li>Прокладка строго вертикально/горизонтально.</li>
+          <li>Отступ от дверного проёма ≥ 100 мм.</li>
+          <li>Розетка ≈ 300 мм; выключатель ≈ 900 мм от чистового пола.</li>
+        </ul>
+      </div>
+      <h3>Смета (приблизительно)</h3>
+      <div id="bom"></div>
+      <div id="serverStatus" class="badge">сервер: не проверен</div>
+    </aside>
+    <section class="canvas-wrap">
+      <canvas id="canvas" width="1600" height="900"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <small>Fullstack MVP v1.1: каналы вдоль стен + A* на бэке при включённой «строгой разводке».</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

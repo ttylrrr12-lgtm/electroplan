@@ -1,0 +1,24 @@
+
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;background:#0b0c10;color:#eaeaea}
+header{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #222;background:#0f1115;position:sticky;top:0;z-index:10}
+h1{font-size:18px;margin:0 12px 0 0;color:#fff}
+h1 .muted{font-weight:normal;color:#aaa;font-size:14px;margin-left:6px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,.file span{background:#1b1f2a;color:#eaeaea;border:1px solid #2a2f3a;border-radius:10px;padding:8px 12px;cursor:pointer}
+button:hover,.file span:hover{background:#242b38}
+.file input{display:none}
+.divider{width:1px;height:28px;background:#2a2f3a;margin:0 6px}
+.palette .tool{padding:4px;display:flex;align-items:center;justify-content:center}
+.palette img{width:22px;height:22px;display:block;filter:invert(1)}
+.toggle{display:flex;align-items:center;gap:6px}
+main{display:grid;grid-template-columns:340px 1fr;gap:0;min-height:calc(100vh - 64px)}
+aside{border-right:1px solid #222;padding:12px 14px;background:#0f1115}
+aside h3{margin:10px 0 8px}
+aside label{display:block;margin:8px 0 12px}
+.canvas-wrap{position:relative;overflow:auto;background:#0b0c10}
+canvas{background:#111;border:1px solid #222;margin:12px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.hints ul{margin:6px 0 0 18px;padding:0}
+footer{padding:8px 16px;border-top:1px solid #222;color:#aaa;background:#0f1115}
+#bom{font-size:14px;line-height:1.4}
+.badge{display:inline-block;padding:2px 6px;border-radius:8px;background:#1f2532;border:1px solid #2a3140;font-size:12px;margin-left:6px}
